@@ -1,15 +1,16 @@
-SRC =  List.cpp Student.cpp main.cpp 
+SRC = List.cpp Student.cpp main.cpp 
 OBJ = List.o Student.o main.o
 TARGET = main
+FLAGS = -std=c++17
 
 # Reglas
 all: $(TARGET)
 
 $(TARGET): $(OBJ)
-	g++ $(OBJ) -o $(TARGET)
+	g++ $(FLAGS) $(OBJ) -o $(TARGET)
 
 %.o: %.cpp
-	g++ -c $< -o $@
+	g++ $(FLAGS) -c $< -o $@
 
 clean:
 	del -f *.o $(TARGET)
